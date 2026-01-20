@@ -127,7 +127,7 @@ export function LandingPage() {
                   </div>}
               </div>
 
-              <button type="submit" disabled={status === 'loading'} className="w-full bg-[#81A6A2] hover:bg-[#6f938f] text-white font-semibold text-lg py-4 px-8 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center">
+              <button type="submit" disabled={status === 'loading'} className="w-full bg-[#467302] hover:bg-[#6f938f] text-white font-semibold text-lg py-4 px-8 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center">
                 {status === 'loading' ? <>
                     <Loader2 className="w-5 h-5 mr-2 animate-spin" />
                     Joining...
