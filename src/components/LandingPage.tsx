@@ -38,6 +38,7 @@ export function LandingPage() {
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 translate-x-32 md:translate-x-40 md:bottom-16 opacity-50 pointer-events-none select-none flex gap-3">
         <div className="w-16 h-16 md:w-20 md:h-20 bg-gray-100 rounded-full" />
         <div className="w-20 h-20 md:w-24 md:h-24 bg-gray-100 rounded-full mt-4" />
+        <div className="w-14 h-14 md:w-16 md:h-16 bg-gray-100 rounded-full" />
       </div>
 
       {/* Main Content */}
