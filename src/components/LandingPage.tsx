@@ -6,10 +6,11 @@ import avatar2 from '../../avatars/2.png';
 import avatar3 from '../../avatars/3.png';
 import avatar4 from '../../avatars/4.png';
 import avatar5 from '../../avatars/5.png';
-import avatar6 from '../../avatars/6.png';
+import avatar6 from '../../avatars/13.png';
 import avatar7 from '../../avatars/7.png';
 import avatar8 from '../../avatars/8.png';
 import avatar9 from '../../avatars/9.png';
+import avatar10 from '../../avatars/10.png';
 export function LandingPage() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -23,7 +24,13 @@ export function LandingPage() {
     { src: avatar8, alt: 'Delighted Lupin customer', className: 'w-20 h-20 md:w-24 md:h-24 mt-4' },
     { src: avatar9, alt: 'Grateful Lupin customer', className: 'w-14 h-14 md:w-16 md:h-16' }
   ];
-  const mobileBottomAvatars = bottomAvatars.slice(0, 3);
+  const mobileBottomAvatars = [
+    { src: avatar6, alt: 'Cheerful Lupin customer', className: 'w-[5.5rem] h-[5.5rem] left-0 bottom-0' },
+    { src: avatar8, alt: 'Delighted Lupin customer', className: 'w-[5rem] h-[5rem] right-0 top-0' },
+    { src: avatar4, alt: 'Happy Lupin customer', className: 'w-[3.75rem] h-[3.75rem] left-[5.5rem] top-5' },
+    { src: avatar5, alt: 'Excited Lupin customer', className: 'w-[3.5rem] h-[3.5rem] right-5 bottom-6' },
+    { src: avatar7, alt: 'Joyful Lupin customer', className: 'w-[3rem] h-[3rem] left-[7.2rem] top-[6.5rem]' }
+  ];
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
@@ -38,40 +45,50 @@ export function LandingPage() {
       setEmail('');
     }, 1500);
   };
-  return <div className="min-h-[1000px] min-[1000px]:min-h-[1020px] min-[1364px]:min-h-screen w-full bg-white relative overflow-hidden flex flex-col items-center justify-start md:justify-center pt-10 md:pt-0 px-6 pb-6 font-sans">
+  return <div className="min-h-[1100px] min-[1000px]:min-h-[1020px] min-[1364px]:min-h-screen w-full bg-white relative overflow-hidden flex flex-col items-center justify-start md:justify-center pt-10 md:pt-0 px-6 pb-6 font-sans">
       {/* Decorative Background Circles - Top Left */}
-      <div className="absolute top-4 left-4 opacity-70 pointer-events-none select-none md:hidden">
+      <div className="absolute top-4 left-4 opacity-70 pointer-events-none select-none min-[1040px]:hidden">
         <img
           src={avatar1}
           alt="Happy Lupin customer"
-          className="w-16 h-16 rounded-full mb-3 object-cover shadow-md"
+          className="w-16 h-16 rounded-full mb-3 object-cover"
         />
         <img
           src={avatar2}
           alt="Smiling Lupin customer"
-          className="w-12 h-12 rounded-full object-cover shadow"
+          className="w-12 h-12 rounded-full object-cover"
+        />
+        <img
+          src={avatar3}
+          alt="Excited Lupin customer"
+          className="w-10 h-10 rounded-full object-cover mt-2 ml-8"
         />
       </div>
-      <div className="absolute top-10 -left-10 md:top-20 md:left-20 opacity-70 pointer-events-none select-none hidden md:block">
+      <div className="absolute top-10 -left-10 md:top-20 md:left-20 opacity-70 pointer-events-none select-none hidden min-[1040px]:block">
         <img
           src={avatar1}
           alt="Happy Lupin customer"
-          className="w-24 h-24 md:w-32 md:h-32 rounded-full mb-4 ml-8 object-cover shadow-md"
+          className="w-24 h-24 md:w-32 md:h-32 rounded-full mb-4 ml-8 object-cover"
         />
         <img
           src={avatar2}
           alt="Smiling Lupin customer"
-          className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover shadow"
+          className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover"
+        />
+        <img
+          src={avatar10}
+          alt="Excited Lupin customer"
+          className="w-14 h-14 md:w-20 md:h-20 rounded-full object-cover mt-3 ml-16"
         />
       </div>
 
       {/* Decorative Background Avatars - Bottom Cluster */}
-      <div className="absolute bottom-6 right-4 opacity-70 pointer-events-none select-none flex gap-3 min-[1364px]:hidden">
-        {mobileBottomAvatars.map(avatar => <img key={avatar.alt} src={avatar.src} alt={avatar.alt} className={`${avatar.className} rounded-full object-cover shadow-md w-16 h-16`} />)}
+      <div className="absolute bottom-4 right-4 w-60 h-44 opacity-70 pointer-events-none select-none min-[1364px]:hidden">
+        {mobileBottomAvatars.map(avatar => <img key={avatar.alt} src={avatar.src} alt={avatar.alt} className={`${avatar.className} rounded-full object-cover absolute`} />)}
       </div>
 
       <div className="absolute -bottom-20 -right-20 md:bottom-10 md:right-10 opacity-70 pointer-events-none select-none hidden min-[1364px]:flex flex-wrap max-w-md justify-end gap-4">
-        {bottomAvatars.map(avatar => <img key={avatar.alt} src={avatar.src} alt={avatar.alt} className={`${avatar.className} rounded-full object-cover shadow-md`} />)}
+        {bottomAvatars.map(avatar => <img key={avatar.alt} src={avatar.src} alt={avatar.alt} className={`${avatar.className} rounded-full object-cover`} />)}
       </div>
 
 
@@ -90,7 +107,10 @@ export function LandingPage() {
 
         {/* Hero Text */}
         <div className="space-y-6 mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
+          <h1
+            className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900"
+            style={{ fontFamily: '"Playfair Display", serif', lineHeight: 1.2 }}
+          >
           Show up for the people who matter, regularly.
           </h1>
           <div className="space-y-2">
