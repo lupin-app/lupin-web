@@ -95,7 +95,7 @@ export function LandingPage() {
           </h1>
           <div className="space-y-2">
             <p className="text-xl md:text-2xl text-gray-600 font-medium">
-            Lupin is the best way to stay connected with friends and family
+            Lupin is the best way to stay connected with friends and family. 
             </p>
 
           </div>
