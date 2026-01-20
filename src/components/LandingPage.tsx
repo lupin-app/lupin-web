@@ -91,11 +91,11 @@ export function LandingPage() {
         {/* Hero Text */}
         <div className="space-y-6 mb-12">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
-            Coming Soon...
+          Show up for the people who matter, regularly.
           </h1>
           <div className="space-y-2">
-            <p className="text-xl md:text-2xl text-gray-600 font-medium">
-            Lupin is the best way to stay connected with friends and family. 
+            <p className="text-lg md:text-xl text-gray-600 font-small">
+            Lupin helps you stay connected over time with the people you care about most. It creates simple, recurring moments to check in, share updates, and respond, without the pressure of constant messaging. And when life gets busy, Lupin quietly helps smooth things out, so staying in touch feels natural, not forced. 
             </p>
 
           </div>
@@ -114,7 +114,7 @@ export function LandingPage() {
               </button>
             </div> : <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div className="relative">
-                <input type="email" placeholder="Enter your email address" value={email} onChange={e => {
+                <input type="email" placeholder="Enter your email for early access" value={email} onChange={e => {
               setEmail(e.target.value);
               if (status === 'error') setStatus('idle');
             }} disabled={status === 'loading'} className={`w-full px-6 py-4 text-lg bg-white border-2 rounded-xl outline-none transition-all duration-200 shadow-sm
@@ -131,7 +131,7 @@ export function LandingPage() {
                 {status === 'loading' ? <>
                     <Loader2 className="w-5 h-5 mr-2 animate-spin" />
                     Joining...
-                  </> : 'Loop Me In!'}
+                  </> : 'Get Early Access'}
               </button>
             </form>}
         </div>
@@ -139,9 +139,9 @@ export function LandingPage() {
         {/* Footer Text */}
         <div className="text-center space-y-1">
           <p className="text-sm text-gray-400">
-            No spam, ever. Your email is safe with us.
+          No spam, no noise.
           </p>
-          <p className="text-sm text-gray-400">Unsubscribe at any time.</p>
+          <p className="text-sm text-gray-400">Just keeping you in the loop as Lupin gets ready to launch.</p>
         </div>
       </main>
     </div>;
