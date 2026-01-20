@@ -38,7 +38,7 @@ export function LandingPage() {
       setEmail('');
     }, 1500);
   };
-  return <div className="min-h-screen w-full bg-white relative overflow-hidden flex flex-col items-center justify-center p-6 font-sans">
+  return <div className="min-h-[1000px] min-[1000px]:min-h-[1020px] min-[1364px]:min-h-screen w-full bg-white relative overflow-hidden flex flex-col items-center justify-start md:justify-center pt-10 md:pt-0 px-6 pb-6 font-sans">
       {/* Decorative Background Circles - Top Left */}
       <div className="absolute top-4 left-4 opacity-70 pointer-events-none select-none md:hidden">
         <img
@@ -66,11 +66,11 @@ export function LandingPage() {
       </div>
 
       {/* Decorative Background Avatars - Bottom Cluster */}
-      <div className="absolute bottom-6 right-4 opacity-70 pointer-events-none select-none flex gap-3 md:hidden">
+      <div className="absolute bottom-6 right-4 opacity-70 pointer-events-none select-none flex gap-3 min-[1364px]:hidden">
         {mobileBottomAvatars.map(avatar => <img key={avatar.alt} src={avatar.src} alt={avatar.alt} className={`${avatar.className} rounded-full object-cover shadow-md w-16 h-16`} />)}
       </div>
 
-      <div className="absolute -bottom-20 -right-20 md:bottom-10 md:right-10 opacity-70 pointer-events-none select-none hidden md:flex flex-wrap max-w-md justify-end gap-4">
+      <div className="absolute -bottom-20 -right-20 md:bottom-10 md:right-10 opacity-70 pointer-events-none select-none hidden min-[1364px]:flex flex-wrap max-w-md justify-end gap-4">
         {bottomAvatars.map(avatar => <img key={avatar.alt} src={avatar.src} alt={avatar.alt} className={`${avatar.className} rounded-full object-cover shadow-md`} />)}
       </div>
 
