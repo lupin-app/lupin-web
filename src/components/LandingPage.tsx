@@ -262,13 +262,13 @@ export function LandingPage() {
         {/* Email Capture Form */}
         <div className="w-full max-w-md mx-auto mb-12">
           {status === 'success' ? (
-            <div className="bg-green-50 border border-green-200 rounded-xl p-6 flex flex-col items-center animate-in fade-in zoom-in duration-300">
-              <CheckCircle2 className="w-12 h-12 text-green-500 mb-3" />
-              <h3 className="text-lg font-semibold text-green-800">You're in the Loop!</h3>
-              <p className="text-green-600">We'll be in touch soon.</p>
+            <div className="bg-[#c5d9d5] border border-[#c5d9d5] rounded-xl p-6 flex flex-col items-center animate-in fade-in zoom-in duration-300">
+              <CheckCircle2 className="w-12 h-12 text-[#81A6A2] mb-3" />
+              <h3 className="text-lg font-semibold text-[#8303A6]">You're in the Loop!</h3>
+              <p className="text-[#81A6A2]">We'll be in touch soon.</p>
               <button
                 onClick={() => setStatus('idle')}
-                className="mt-4 text-sm text-green-700 hover:text-green-900 underline"
+                className="mt-4 text-sm text-[#81A6A2] hover:text-[#6f938f] underline"
               >
                 Register another email
               </button>
@@ -297,7 +297,7 @@ export function LandingPage() {
               <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
                 <input type="text" name={honeypotName} tabIndex={-1} defaultValue="" />
               </div>
-              <div className="relative">
+              <div>
                 <input
                   name="EMAIL"
                   type="email"
@@ -323,17 +323,6 @@ export function LandingPage() {
                     disabled:bg-gray-50 disabled:cursor-not-allowed
                   `}
                 />
-                {status === 'error' && (
-                  <div
-                    id="email-error"
-                    className="absolute -bottom-6 left-0 flex items-center text-red-500 text-sm"
-                    role="alert"
-                    aria-live="assertive"
-                  >
-                    <AlertCircle className="w-3 h-3 mr-1" />
-                    {errorMessage}
-                  </div>
-                )}
               </div>
 
               <button
@@ -350,6 +339,17 @@ export function LandingPage() {
                   'Get Early Access'
                 )}
               </button>
+              {status === 'error' && (
+                <div
+                  id="email-error"
+                  className="flex items-center text-red-500 text-sm -mt-2"
+                  role="alert"
+                  aria-live="assertive"
+                >
+                  <AlertCircle className="w-3 h-3 mr-1" />
+                  {errorMessage}
+                </div>
+              )}
             </form>
           )}
         </div>
