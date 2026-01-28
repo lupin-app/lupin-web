@@ -55,12 +55,20 @@ export function LandingPage() {
 
   const [isMobile, setIsMobile] = useState(false);
 
-  const circleScale = isMobile ? 0.7 : 1;
+  // Allow separate mobile scaling for each cluster.
+  const topLeftScale = isMobile ? 0.7 : 1;
+  const bottomRightScale = isMobile ? 0.8 : 1;
+
+  // Hide avatar7 on mobile.
+  const visibleBottomRightCircles = isMobile
+    ? bottomRightCircles.filter(circle => circle.src !== avatar7)
+    : bottomRightCircles;
 
   const buildCircleStyle = (circle: CircleSpec, origin: 'topLeft' | 'bottomRight') => {
-    const scaledX = circle.x * circleScale;
-    const scaledY = circle.y * circleScale;
-    const scaledSize = circle.size * circleScale;
+    const scale = origin === 'topLeft' ? topLeftScale : bottomRightScale;
+    const scaledX = circle.x * scale;
+    const scaledY = circle.y * scale;
+    const scaledSize = circle.size * scale;
 
     const basePosition =
       origin === 'topLeft'
@@ -155,7 +163,10 @@ export function LandingPage() {
   return (
     <div
       className="relative min-h-screen overflow-visible bg-white px-6 py-12 pb-48 md:px-12 md:pb-28"
-      style={{ minHeight: isMobile ? '100vh' : 'max(100vh, 1000px)' }}
+      style={{
+        minHeight: isMobile ? 'calc(100vh + 120px)' : 'max(100vh, 1000px)',
+        paddingBottom: isMobile ? 240 : undefined // Give extra room on mobile so circles clear the footer text
+      }}
     >
       {/* Decorative Background Avatars - Top Right (hidden) */}
       <div className="hidden">
@@ -183,8 +194,8 @@ export function LandingPage() {
         style={{
           top: 0,
           left: 0,
-          width: 360 * circleScale,
-          height: 230 * circleScale,
+          width: 360 * topLeftScale,
+          height: 230 * topLeftScale,
           padding: circleSpacing
         }}
       >
@@ -197,7 +208,8 @@ export function LandingPage() {
             <img
               src={circle.src}
               alt={circle.alt}
-              className="rounded-full object-cover border border-white/70 w-full h-full"
+              className="rounded-full object-cover w-full h-full"
+              style={{ border: '3px solid #000' }}
             />
           </div>
         ))}
@@ -206,16 +218,16 @@ export function LandingPage() {
       {/* Decorative Circles - Bottom Right (origin at bottom/right = 0) */}
       <div
         aria-hidden="true"
-        className="absolute pointer-events-none select-none opacity-70 origin-bottom-right scale-90 sm:scale-100"
+        className="absolute pointer-events-none select-none opacity-70 origin-bottom-right"
         style={{
           bottom: 0,
           right: 0,
-          width: 460 * circleScale,
-          height: 320 * circleScale,
+          width: 460 * bottomRightScale,
+          height: 320 * bottomRightScale,
           padding: circleSpacing
         }}
       >
-        {bottomRightCircles.map((circle, index) => (
+        {visibleBottomRightCircles.map((circle, index) => (
           <div
             key={`bottom-right-${index}`}
             className="absolute"
@@ -224,7 +236,8 @@ export function LandingPage() {
             <img
               src={circle.src}
               alt={circle.alt}
-              className="rounded-full object-cover border border-white/70 w-full h-full"
+              className="rounded-full object-cover w-full h-full"
+              style={{ border: '3px solid #000' }}
             />
           </div>
         ))}
@@ -260,17 +273,17 @@ export function LandingPage() {
         </div>
 
         {/* Email Capture Form */}
-        <div className="w-full max-w-md mx-auto mb-12">
+        <div className="w-full max-w-md mx-auto mb-6">
           {status === 'success' ? (
-            <div className="bg-[#c5d9d5] border border-[#c5d9d5] rounded-xl p-6 flex flex-col items-center animate-in fade-in zoom-in duration-300">
+            <div className="border border-[#c5d9d5] rounded-xl p-6 flex flex-col items-center animate-in fade-in zoom-in duration-300">
               <CheckCircle2 className="w-12 h-12 text-[#81A6A2] mb-3" />
-              <h3 className="text-lg font-semibold text-[#8303A6]">You're in the Loop!</h3>
+              <h3 className="text-lg font-semibold text-[#8303A6]">You're in the loop!</h3>
               <p className="text-[#81A6A2]">We'll be in touch soon.</p>
               <button
                 onClick={() => setStatus('idle')}
                 className="mt-4 text-sm text-[#81A6A2] hover:text-[#6f938f] underline"
               >
-                Register another email
+                Sign up with another email
               </button>
             </div>
           ) : (
