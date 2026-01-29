@@ -45,8 +45,8 @@ export function LandingPage() {
 
   const bottomRightCircles: CircleSpec[] = [
     { src: avatar4, alt: 'Happy Lupin customer', size: 132, x: 0, y: 0 },
-    { src: avatar3, alt: 'Smiling Lupin customer', size: 96, x: 106, y: 98 },
-    { src: avatar6, alt: 'Cheerful Lupin customer', size: 126, x: 136, y: 0},
+    { src: avatar3, alt: 'Smiling Lupin customer', size: 96, x: 113, y: 106 },
+    { src: avatar6, alt: 'Cheerful Lupin customer', size: 116, x: 140, y: 0},
     { src: avatar5, alt: 'Excited Lupin customer', size: 150, x: 0, y: 152 },
     { src: avatar8, alt: 'Delighted Lupin customer', size: 110, x: 198, y: 104 },
     { src: avatar7, alt: 'Joyful Lupin customer', size: 88, x: 418, y: 0 },
