@@ -78,7 +78,9 @@ export function LandingPage3() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#C5D9D5] text-white px-6 py-12 md:px-12 lg:px-16">
+    <div
+      className="min-h-screen text-white px-6 py-12 md:px-12 lg:px-16 bg-[linear-gradient(to_bottom,_#C5D9D5_0%,_#C5D9D5_50%,_white_50%,_white_100%)] lg:bg-[linear-gradient(to_right,_#C5D9D5_0%,_#C5D9D5_50%,_white_50%,_white_100%)]"
+    >
         <div className="mx-auto flex w-full max-w-6xl flex-col-reverse items-center gap-12 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16 lg:min-h-[80vh]">
           <div className="w-full space-y-8">
             <div className="flex justify-center">
@@ -89,7 +91,8 @@ export function LandingPage3() {
               className="text-4xl font-black leading-tight text-black sm:text-5xl md:text-6xl mb-3"
               style={{ fontFamily: '"Inter", "Inter var", system-ui, -apple-system, "Segoe UI", sans-serif', fontWeight: 700 }}
             >
-              <span className="text-[#8303A6]">Show up</span> for the people who matter, regularly.
+              <span className="text-[#8303A6]">Show up</span> for the people who matter, <span className="text-[#8303A6]">regularly.</span>
+
               <br />
             </h1>
             <p className="max-w-xl text-lg text-black/80">
@@ -121,7 +124,7 @@ export function LandingPage3() {
                 action={mailchimpAction}
                 method="post"
                 target={mailchimpTarget}
-                className="flex flex-col gap-3 rounded-2xl bg-white/10 p-3 ring-1 ring-white/15 backdrop-blur"
+                className="flex flex-col gap-3 rounded-2xl p-3 backdrop-blur"
                 noValidate
               >
                 <iframe
@@ -138,11 +141,11 @@ export function LandingPage3() {
                 <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
                   <input type="text" name={honeypotName} tabIndex={-1} defaultValue="" />
                 </div>
-                <div className="flex flex-col gap-3 sm:flex-row">
+                <div className="flex flex-col gap-3">
                   <input
                     name="EMAIL"
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="Enter your email for early access"
                     value={email}
                     onChange={event => {
                       setEmail(event.target.value);
@@ -155,13 +158,13 @@ export function LandingPage3() {
                     spellCheck={false}
                     aria-invalid={status === 'error'}
                     aria-describedby={status === 'error' ? 'lp3-email-error' : undefined}
-                    className={`w-full rounded-full border bg-white/80 py-3 text-base text-[#2d1837] placeholder:text-[#7a5f7a] shadow-sm backdrop-blur transition focus:border-[#120b33] focus:outline-none focus:ring-2 focus:ring-[#cdb3d6] sm:flex-1 sm:text-lg sm:leading-[52px] sm:px-6
-                      ${status === 'error' ? 'border-red-400' : 'border-[#8a6f92]'}`}
+                    className={`w-full rounded-full border bg-[#F7E8F2] px-5 py-2 text-base text-[#2d1837] placeholder:text-[#7a5f7a] shadow-sm transition focus:border-[#0b0732] focus:outline-none focus:ring-2 focus:ring-[#d1b3e0] sm:flex-1 sm:text-lg sm:leading-[32px] sm:px-6
+                      ${status === 'error' ? 'border-red-400' : 'border-[#7a4b87]'}`}
                   />
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="flex w-full items-center justify-center rounded-full border border-[#120b33] bg-[#120b33] px-7 py-3 text-base font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#120b33]/30 disabled:translate-y-0 disabled:opacity-70 sm:w-auto sm:px-8 sm:text-lg"
+                    className="flex w-full items-center justify-center rounded-full border border-[#0b0732] bg-[#0b0732] px-7 py-2 text-base font-semibold text-white shadow-md shadow-[#0b0732]/30 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#0b0732]/40 disabled:translate-y-0 disabled:opacity-70 sm:w-auto sm:px-8 sm:text-lg"
                   >
                     {status === 'loading' ? (
                       <>
@@ -188,7 +191,7 @@ export function LandingPage3() {
             )}
           </div>
 
-          <p className="text-sm text-white/70">
+          <p className="text-sm text-black/70">
           No spam, no noise. Just keeping you in the loop as Lupin gets ready to launch.
           </p>
         </div>
@@ -197,7 +200,7 @@ export function LandingPage3() {
           <img
             src={landing3}
             alt="Lupin landing preview"
-            className="w-full max-w-xl rounded-3xl shadow-2xl"
+            className="w-full max-w-xl rounded-3xl"
           />
         </div>
       </div>
