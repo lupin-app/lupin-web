@@ -36,6 +36,9 @@ jobs:
         run: npm run build
         # must output to /dist
 
+      - name: Add SPA fallback (404.html)
+        run: cp dist/index.html dist/404.html
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
