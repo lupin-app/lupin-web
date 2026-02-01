@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { AlertCircle, CheckCircle2, Loader2 } from 'lucide-react';
-import logoTransparent from '../../lupin-logo-transparent.png';
-import landing3 from '../../landing3.png';
+import logoTransparent from '../../logo-full.png';
+import landing3 from '../../landing3b.png';
 
 type SubmitStatus = 'idle' | 'loading' | 'success' | 'error';
 
@@ -79,25 +79,25 @@ export function LandingPage3() {
 
   return (
     <div
-      className="min-h-screen text-white px-6 py-12 md:px-12 lg:px-16 bg-[linear-gradient(to_bottom,_#C5D9D5_0%,_#C5D9D5_50%,_white_50%,_white_100%)] lg:bg-[linear-gradient(to_right,_#C5D9D5_0%,_#C5D9D5_50%,_white_50%,_white_100%)]"
+      className="min-h-screen text-white px-6 py-12 md:px-12 lg:px-16 bg-[#c5d9d5]"
     >
-        <div className="mx-auto flex w-full max-w-6xl flex-col-reverse items-center gap-12 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16 lg:min-h-[80vh]">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16 lg:min-h-[80vh]">
           <div className="w-full space-y-8">
             <div className="flex justify-center">
-              <img src={logoTransparent} alt="Lupin logo" className="h-20 w-auto" />
+              <img src={logoTransparent} alt="Lupin logo" className="h-auto w-[202px]" />
             </div>
             <div className="space-y-4">
             <h1
-              className="text-4xl font-black leading-tight text-black sm:text-5xl md:text-6xl mb-3"
-              style={{ fontFamily: '"Inter", "Inter var", system-ui, -apple-system, "Segoe UI", sans-serif', fontWeight: 700 }}
+              className="text-3xl font-black leading-tight text-black sm:text-4xl md:text-5xl mb-3"
+              style={{ fontFamily: '"Playfair Display", serif', fontWeight: 700 }}
             >
               <span className="text-[#8303A6]">Show up</span> for the people who matter, <span className="text-[#8303A6]">regularly.</span>
 
               <br />
             </h1>
-            <p className="max-w-xl text-lg text-black/80">
-            Lupin helps you stay connected over time with the people you care about most. It creates simple, recurring moments to check in, share updates, and respond, without the pressure of constant messaging. And when life gets busy, Lupin quietly helps smooth things out, so staying in touch feels natural, not forced.
-              </p>
+            <p className="max-w-l text-lg text-black/80">Lupin helps you stay connected over time with the people you care about most.</p>
+              <p className="max-w-l text-lg text-black/80">It creates simple, recurring moments to check in, share updates, and respond.</p>
+              <p className="max-w-l text-lg text-black/80">Built for meaningful consistency, not constant pings.</p>
           </div>
 
           <div className="w-full max-w-lg">
@@ -158,13 +158,13 @@ export function LandingPage3() {
                     spellCheck={false}
                     aria-invalid={status === 'error'}
                     aria-describedby={status === 'error' ? 'lp3-email-error' : undefined}
-                    className={`w-full rounded-full border bg-[#F7E8F2] px-5 py-2 text-base text-[#2d1837] placeholder:text-[#7a5f7a] shadow-sm transition focus:border-[#0b0732] focus:outline-none focus:ring-2 focus:ring-[#d1b3e0] sm:flex-1 sm:text-lg sm:leading-[32px] sm:px-6
+                    className={`w-[85%] self-center rounded-full border bg-[#F7E8F2] px-5 py-[0.8rem] text-base text-[#2d1837] placeholder:text-[#7a5f7a] shadow-sm transition focus:border-[#0b0732] focus:outline-none focus:ring-2 focus:ring-[#d1b3e0] sm:text-lg sm:leading-[32px] sm:px-6
                       ${status === 'error' ? 'border-red-400' : 'border-[#7a4b87]'}`}
                   />
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="flex w-full items-center justify-center rounded-full border border-[#0b0732] bg-[#0b0732] px-7 py-2 text-base font-semibold text-white shadow-md shadow-[#0b0732]/30 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#0b0732]/40 disabled:translate-y-0 disabled:opacity-70 sm:w-auto sm:px-8 sm:text-lg"
+                    className="flex w-[85%] self-center items-center justify-center rounded-full border border-[#0b0732] bg-[#0b0732] px-7 py-[1rem] text-base font-semibold text-white shadow-md shadow-[#0b0732]/30 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#0b0732]/40 disabled:translate-y-0 disabled:opacity-70 sm:px-8 sm:text-lg"
                   >
                     {status === 'loading' ? (
                       <>
@@ -172,7 +172,7 @@ export function LandingPage3() {
                         Joining...
                       </>
                     ) : (
-                      'Get Early Access'
+                      'Get Early Access to Lupin'
                     )}
                   </button>
                 </div>
@@ -191,8 +191,8 @@ export function LandingPage3() {
             )}
           </div>
 
-          <p className="text-sm text-black/70">
-          No spam, no noise. Just keeping you in the loop as Lupin gets ready to launch.
+          <p className="text-sm text-black/70 -mt-8 text-center" style={{ marginTop: '15px' }}>
+          No spam, no noise. Just keeping you in the loop as we get ready to launch.
           </p>
         </div>
 
