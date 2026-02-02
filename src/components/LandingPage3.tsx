@@ -81,41 +81,35 @@ export function LandingPage3() {
     <div
       className="min-h-screen text-white px-6 py-12 md:px-12 lg:px-16 bg-[#c5d9d5]"
     >
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 lg:grid lg:grid-cols-2 lg:items-center lg:gap-16 lg:min-h-[80vh]">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 sm:grid sm:grid-cols-2 sm:items-center sm:gap-12 lg:gap-16 lg:min-h-[80vh]">
           <div className="w-full space-y-8">
             <div className="flex justify-center">
               <img src={logoTransparent} alt="Lupin logo" className="h-auto w-[202px]" />
             </div>
             <div className="space-y-4">
             <h1
-              className="text-3xl font-black leading-tight text-black sm:text-4xl md:text-5xl mb-3"
+              className="text-3xl font-black leading-tight text-black sm:text-4xl [min-width:908px]:text-5xl mb-3"
               style={{ fontFamily: '"Playfair Display", serif', fontWeight: 700 }}
             >
               <span className="text-[#8303A6]">Show up</span> for the people who matter, <span className="text-[#8303A6]">regularly.</span>
 
               <br />
             </h1>
-            <p className="max-w-l text-lg text-black/80">Lupin helps you stay connected over time with the people you care about most.</p>
+            <p className="max-w-l text-lg text-black/80">Lupin helps you stay connected over time with the people you care about the most.</p>
               <p className="max-w-l text-lg text-black/80">It creates simple, recurring moments to check in, share updates, and respond.</p>
               <p className="max-w-l text-lg text-black/80">Built for meaningful consistency, not constant pings.</p>
           </div>
 
           <div className="w-full max-w-lg">
             {status === 'success' ? (
-              <div className="flex items-center gap-3 rounded-2xl bg-white/10 px-4 py-4 ring-1 ring-white/15 backdrop-blur">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#d5ff57] text-[#1f4a2b]">
+              <div className="flex items-center gap-3 rounded-2xl bg-white/10 px-4 py-4 ring-1 ring-white/15 backdrop-blur min-w-[300px]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#8303A6] text-black">
                   <CheckCircle2 className="h-6 w-6" />
                 </div>
                 <div>
-                  <p className="text-base font-semibold text-white">You’re on the list!</p>
-                  <p className="text-sm text-white/70">We’ll follow up with early access soon.</p>
+                  <p className="text-base font-semibold text-black">You’re in the loop!</p>
+                  <p className="text-sm text-black">We’ll be in touch soon.</p>
                 </div>
-                <button
-                  onClick={() => setStatus('idle')}
-                  className="ml-auto text-sm font-medium text-[#d5ff57] underline decoration-2 decoration-transparent transition hover:decoration-[#d5ff57]"
-                >
-                  Add another
-                </button>
               </div>
             ) : (
               <form
@@ -124,7 +118,7 @@ export function LandingPage3() {
                 action={mailchimpAction}
                 method="post"
                 target={mailchimpTarget}
-                className="flex flex-col gap-3 rounded-2xl p-3 backdrop-blur"
+                className="flex flex-col items-center gap-3 rounded-2xl p-3 backdrop-blur"
                 noValidate
               >
                 <iframe
@@ -158,13 +152,13 @@ export function LandingPage3() {
                     spellCheck={false}
                     aria-invalid={status === 'error'}
                     aria-describedby={status === 'error' ? 'lp3-email-error' : undefined}
-                    className={`w-[85%] self-center rounded-full border bg-[#F7E8F2] px-5 py-[0.8rem] text-base text-[#2d1837] placeholder:text-[#7a5f7a] shadow-sm transition focus:border-[#0b0732] focus:outline-none focus:ring-2 focus:ring-[#d1b3e0] sm:text-lg sm:leading-[32px] sm:px-6
+                    className={`w-full max-w-[480px] min-w-[320px] rounded-full border bg-[#F7E8F2] px-5 py-[0.8rem] text-sm text-[#2d1837] placeholder:text-[#7a5f7a] shadow-sm transition focus:border-[#0b0732] focus:outline-none focus:ring-2 focus:ring-[#d1b3e0] sm:text-lg sm:leading-[32px] sm:px-6
                       ${status === 'error' ? 'border-red-400' : 'border-[#7a4b87]'}`}
                   />
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="flex w-[85%] self-center items-center justify-center rounded-full border border-[#0b0732] bg-[#0b0732] px-7 py-[1rem] text-base font-semibold text-white shadow-md shadow-[#0b0732]/30 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#0b0732]/40 disabled:translate-y-0 disabled:opacity-70 sm:px-8 sm:text-lg"
+                    className="flex w-full max-w-[480px] min-w-[320px] items-center justify-center rounded-full border border-[#0b0732] bg-[#0b0732] px-7 py-[1rem] text-sm font-semibold text-white shadow-md shadow-[#0b0732]/30 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#0b0732]/40 disabled:translate-y-0 disabled:opacity-70 sm:px-8 sm:text-lg"
                   >
                     {status === 'loading' ? (
                       <>
@@ -196,11 +190,11 @@ export function LandingPage3() {
           </p>
         </div>
 
-        <div className="relative w-full max-w-xl flex justify-center">
+        <div className="relative w-full flex justify-center">
           <img
             src={landing3}
             alt="Lupin landing preview"
-            className="w-full max-w-xl rounded-3xl"
+            className="w-full max-w-[360px] sm:max-w-[320px] md:max-w-[420px] lg:max-w-[520px] xl:max-w-[580px] rounded-3xl"
           />
         </div>
       </div>
